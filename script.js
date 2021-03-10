@@ -3,11 +3,16 @@ window.onload = document.querySelector('.color').classList.add('selected');
 //   document.querySelectorAll('.color')
 // }
 const paleta = document.querySelector('#color-palette');
+console.log(paleta.children);
 
 function selectedColor(event) {
   const color = event.target;
-  const theCSSprop = window.getComputedStyle(event.target, null).getPropertyValue('background-color');
-  console.log(theCSSprop);
+  console.log(color);
+  const prop = window.getComputedStyle(color, null).getPropertyValue('background-color');
+  for (let i = 0; i < paleta.children.length; i += 1) {
+    paleta.children[i].classList.remove('selected');
+  }
+  color.classList.add('selected');
 }
 paleta.addEventListener('click', selectedColor);
 
