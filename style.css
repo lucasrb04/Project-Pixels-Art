@@ -22,11 +22,11 @@
   background-color: black;
 }
 
-table {
+.pixel {
   background-color: white;
 }
-td, tr {
+
+td , tr {
   border: 1px solid black;
-  height: 25px;
-  width: 25px;
+  padding: 40px;
 }
