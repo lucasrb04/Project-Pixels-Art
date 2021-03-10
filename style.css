@@ -1,0 +1,21 @@
+.color {
+    border: 1px solid black;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+}
+.red {
+    background-color: red;
+}
+.blue {
+    background-color: blue;
+}
+.yellow {
+    background-color: yellow;
+}
+.green {
+    background-color: green;
+}
+.black {
+    background-color: black;
+}
