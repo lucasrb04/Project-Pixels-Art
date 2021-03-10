@@ -5,22 +5,22 @@
   width: 30px;
 }
 
-.red {
+#red {
   background-color: red;
 }
 
-.blue {
+#blue {
   background-color: blue;
 }
 
-.yellow {
+#yellow {
   background-color: yellow;
 }
 
-.green {
+#green {
   background-color: green;
 }
 
-.black {
+#black {
   background-color: black;
 }
