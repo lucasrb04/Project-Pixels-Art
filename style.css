@@ -24,9 +24,10 @@
 
 .pixel {
   background-color: white;
+  height: 40px;
+  width: 40px;
 }
 
 td , tr {
   border: 1px solid black;
-  padding: 40px;
 }
