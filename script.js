@@ -26,7 +26,7 @@ function paint(event) {
 }
 table.addEventListener('click', paint);
 
-function clear(event) {
+function clear() {
   const pixel = document.querySelectorAll('.pixel');
   for (let i = 0; i < pixel.length; i += 1) {
     pixel[i].style.backgroundColor = 'white';
