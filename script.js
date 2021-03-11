@@ -6,12 +6,10 @@ const paleta = document.querySelector('#color-palette');
 
 function selectedColor(event) {
   const color = event.target;
-  // const prop = window.getComputedStyle(color, null).getPropertyValue('background-color');
   for (let i = 0; i < paleta.children.length; i += 1) {
     paleta.children[i].classList.remove('selected');
   }
   color.classList.add('selected');
-  // return (prop);
 }
 paleta.addEventListener('click', selectedColor);
 
@@ -28,8 +26,10 @@ function paint(event) {
 }
 table.addEventListener('click', paint);
 
-// function paint
-
-// var elem = document.getElementById("test");
-// var theCSSprop = window.getComputedStyle(elem, null).getPropertyValue("background-color");
-// document.getElementById("demo").innerHTML = theCSSprop;
+function clear(event) {
+  const pixel = document.querySelectorAll('.pixel');
+  for (let i = 0; i < pixel.length; i += 1) {
+    pixel[i].style.backgroundColor = 'white';
+  }
+}
+document.querySelector('#clear-board').addEventListener('click', clear);
