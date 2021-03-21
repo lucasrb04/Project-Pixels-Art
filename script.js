@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable prefer-arrow-callback */
 window.onload = document.querySelector('.color').classList.add('selected');
 // function selected () {
 //   document.querySelectorAll('.color')
@@ -33,15 +35,6 @@ function clear() {
   }
 }
 
-function createTr(boardSize) {
-  let counte = 0;
-  const pixelBoard = document.querySelector('#pixel-board');
-  while (counte < boardSize) {
-    const createTrItem = document.createElement('tr');
-    pixelBoard.appendChild(createTrItem);
-    counte += 1;
-  }
-}
 function createTd() {
   const trItem = document.querySelectorAll('tr');
   for (let i = 0; i < trItem.length; i += 1) {
@@ -60,22 +53,29 @@ function clearTr() {
     pixelBoard[index].remove();
   }
 }
+
+function createTr(boardSize) {
+  if (boardSize < 1) {
+    return alert('Board inválido!');
+  }
+  clearTr();
+  let counte = 0;
+  const pixelBoard = document.querySelector('#pixel-board');
+  while (counte < boardSize) {
+    const createTrItem = document.createElement('tr');
+    pixelBoard.appendChild(createTrItem);
+    counte += 1;
+  }
+  createTd();
+}
+
 const tableBtn = document.querySelector('#generate-board');
 
-tableBtn.addEventListener('click', function() {
-  clearTr();
-});
-
-tableBtn.addEventListener('click', function() {
+tableBtn.addEventListener('click', function () {
   createTr(document.querySelector('#board-size').value);
 });
 
-tableBtn.addEventListener('click', function() {
-  createTd();
-});
-
 createTr(5);
-createTd();
 
 const clearBtn = document.querySelector('#clear-board');
 clearBtn.addEventListener('click', clear);
