@@ -5,7 +5,17 @@ window.onload = document.querySelector('.color').classList.add('selected');
 //   document.querySelectorAll('.color')
 // }
 const paleta = document.querySelector('#color-palette');
+const palletColor = document.querySelectorAll('.color');
 
+function randomColor () {
+  for (let index = 1; index < palletColor.length; index += 1) {
+    const corRandom = '#'+Math.floor(Math.random()*16777215).toString(16);
+    palletColor[index].style.backgroundColor = corRandom;
+  }
+}
+window.onload = function () {
+  randomColor();
+};
 function selectedColor(event) {
   const color = event.target;
   for (let i = 0; i < paleta.children.length; i += 1) {
