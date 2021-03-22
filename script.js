@@ -29,7 +29,7 @@ function paint(event) {
 table.addEventListener('click', paint);
 
 function replaceSize (size) {
-  if (size < 5) {
+  if (size < 5 && size > 0) {
     document.querySelector('#board-size').value = 5;
   } else if (size > 50) {
     document.querySelector('#board-size').value = 50;
@@ -67,7 +67,6 @@ function createTr(boardSize) {
   if (boardSize < 1) {
     return alert('Board inválido!');
   }
-  // replaceSize(boardSize);
   clearTr();
   let counte = 0;
   const pixelBoard = document.querySelector('#pixel-board');
