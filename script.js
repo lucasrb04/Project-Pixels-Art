@@ -70,7 +70,6 @@ function createTr(boardSize) {
 }
 
 const tableBtn = document.querySelector('#generate-board');
-
 tableBtn.addEventListener('click', function () {
   createTr(document.querySelector('#board-size').value);
 });
