@@ -28,6 +28,15 @@ function paint(event) {
 }
 table.addEventListener('click', paint);
 
+function replaceSize (size) {
+  if (size < 5) {
+    document.querySelector('#board-size').value = 5;
+  } else if (size > 50) {
+    document.querySelector('#board-size').value = 50;
+  }
+}
+
+
 function clear() {
   const pixel = document.querySelectorAll('.pixel');
   for (let i = 0; i < pixel.length; i += 1) {
@@ -58,6 +67,7 @@ function createTr(boardSize) {
   if (boardSize < 1) {
     return alert('Board inválido!');
   }
+  // replaceSize(boardSize);
   clearTr();
   let counte = 0;
   const pixelBoard = document.querySelector('#pixel-board');
@@ -71,6 +81,10 @@ function createTr(boardSize) {
 
 const tableBtn = document.querySelector('#generate-board');
 tableBtn.addEventListener('click', function () {
+  replaceSize(document.querySelector('#board-size').value);
+});
+
+tableBtn.addEventListener('click', function () {
   createTr(document.querySelector('#board-size').value);
 });
 
@@ -79,11 +93,3 @@ createTr(5);
 const clearBtn = document.querySelector('#clear-board');
 clearBtn.addEventListener('click', clear);
 
-// const inputFf = document.querySelector('#font-family');
-// function changeFf(fontFamily) {
-//   document.querySelector('p').style.fontFamily = (inputFf.value);
-//   localStorage.setItem('font-family', fontFamily);
-// }
-
-// inputFf.addEventListener('change',function() {
-// changeFf(inputFf.value)});
