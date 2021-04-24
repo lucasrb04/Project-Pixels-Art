@@ -6,10 +6,11 @@ window.onload = document.querySelector('.color').classList.add('selected');
 // }
 const paleta = document.querySelector('#color-palette');
 const palletColor = document.querySelectorAll('.color');
+const boarderSize = document.querySelector('#board-size');
 
-function randomColor () {
+function randomColor() {
   for (let index = 1; index < palletColor.length; index += 1) {
-    const corRandom = '#'+Math.floor(Math.random()*16777215).toString(16);
+    const corRandom = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     palletColor[index].style.backgroundColor = corRandom;
   }
 }
@@ -29,7 +30,8 @@ const table = document.querySelector('#pixel-board');
 function paint(event) {
   for (let i = 0; i < paleta.children.length; i += 1) {
     if (paleta.children[i].classList.contains('selected')) {
-      const color = window.getComputedStyle(paleta.children[i], null).getPropertyValue('background-color');
+      const color1 = window.getComputedStyle(paleta.children[i], null);
+      const color = color1.getPropertyValue('background-color');
       console.log(color);
       const block = event.target;
       block.style.backgroundColor = color;
@@ -38,14 +40,13 @@ function paint(event) {
 }
 table.addEventListener('click', paint);
 
-function replaceSize (size) {
+function replaceSize(size) {
   if (size < 5 && size > 0) {
-    document.querySelector('#board-size').value = 5;
+    boarderSize.value = 5;
   } else if (size > 50) {
-    document.querySelector('#board-size').value = 50;
+    boarderSize.value = 50;
   }
 }
-
 
 function clear() {
   const pixel = document.querySelectorAll('.pixel');
@@ -90,15 +91,14 @@ function createTr(boardSize) {
 
 const tableBtn = document.querySelector('#generate-board');
 tableBtn.addEventListener('click', function () {
-  replaceSize(document.querySelector('#board-size').value);
+  replaceSize(boarderSize.value);
 });
 
 tableBtn.addEventListener('click', function () {
-  createTr(document.querySelector('#board-size').value);
+  createTr(boarderSize.value);
 });
 
 createTr(5);
 
 const clearBtn = document.querySelector('#clear-board');
 clearBtn.addEventListener('click', clear);
-
