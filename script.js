@@ -14,7 +14,7 @@ function randomColor() {
     palletColor[index].style.backgroundColor = corRandom;
   }
 }
-window.onload = function () {
+window.onload = () => {
   randomColor();
 };
 function selectedColor(event) {
@@ -90,11 +90,11 @@ function createTr(boardSize) {
 }
 
 const tableBtn = document.querySelector('#generate-board');
-tableBtn.addEventListener('click', function () {
+tableBtn.addEventListener('click', () => {
   replaceSize(boarderSize.value);
 });
 
-tableBtn.addEventListener('click', function () {
+tableBtn.addEventListener('click', () => {
   createTr(boarderSize.value);
 });
 
